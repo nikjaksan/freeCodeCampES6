@@ -107,3 +107,11 @@ console.log(multiplierAlpha(1, 2));
 // arrow function
 const multiplierBeta = (item, multiplier) => item * multiplier;
 console.log(multiplierBeta(1, 2));
+
+//////////////////////////////////////////////
+// Set default parameters for your functions
+// If no argument is used when a function is called, we can set a default argument to fill its place
+const greeting = (name = "Anonymous") => "Hello " + name;
+// This function will return the string "Hello Anonymous" if no argument is specified, ie. argument is undefined
+console.log(greeting("John"));
+console.log(greeting());
