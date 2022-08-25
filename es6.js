@@ -41,7 +41,7 @@ for (let l = 0; l < 3; l++) {
   }
 }
 console.log(printNumTwoBeta()); //displays l = 2
-console.log(l); // undefined
+// console.log(l); >> undefined
 // l is not defined because it was not declared in the global scope. It is only declared within the for loop statement. printNumTwoBeta() returned the correct value because three different l variables with unique values (0, 1, and 2) were created by the let keyword within the loop statement.
 
 //////////////////////////////////////////////
@@ -50,11 +50,21 @@ console.log(l); // undefined
 // However, it is important to understand that objects (including arrays and functions) assigned to a variable using const are still mutable. Using the const declaration only prevents reassignment of the variable identifier.
 // this means we can change the values inside the array, however we cannpt redifine the entire array ie. change the value assigned to the variable identifier
 const s = [5, 6, 7];
-s = [1, 2, 3]; //cannot reassign variable identifier "s" to new array/value
+// s = [1, 2, 3]; >> cannot reassign variable identifier "s" to new array/value
 s[2] = 45; //we can however alter the existing values inside the array
 console.log(s); // logs array [5,6,45]
 // Like all arrays, the array elements in s are mutable, but because const was used, you cannot use the variable identifier s to point to a different array using the assignment operator.
 
 //////////////////////////////////////////////
 //Prevent Object Mutation
-//
+//JavaScript provides a function Object.freeze to prevent data mutation.
+let obj = {
+  name: "freeCodeCamp",
+  review: "Awesome",
+};
+obj.review = "Bad"; //redefine review as bad
+console.log(obj);
+
+Object.freeze(obj); //freezing obj object so it cannot be mutated
+obj.review = "Average"; //will not work
+console.log(obj); //won't contain updated review data
