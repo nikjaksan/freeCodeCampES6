@@ -91,3 +91,19 @@ var magicAlpha = function () {
 const magicBeta = () => new Date();
 
 console.log(magicBeta());
+
+//////////////////////////////////////////////
+// Writing arrow functions with multiple parameters
+// If an arrow function contains only one parameter, we forego the parenthesis surrounding the parameter.
+// If an arrow function only has one line of executable code, we forego curcly brackets and the return statement
+
+// standard function expression
+const multiplierAlpha = function (item, multiplier) {
+  const calculation = item * multiplier;
+  return calculation;
+};
+console.log(multiplierAlpha(1, 2));
+
+// arrow function
+const multiplierBeta = (item, multiplier) => item * multiplier;
+console.log(multiplierBeta(1, 2));
