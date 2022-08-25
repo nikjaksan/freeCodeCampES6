@@ -68,3 +68,26 @@ console.log(obj);
 Object.freeze(obj); //freezing obj object so it cannot be mutated
 obj.review = "Average"; //will not work
 console.log(obj); //won't contain updated review data
+
+//////////////////////////////////////////////
+// Use Arrow Functions to Write Concise Anonymous Functions
+// anonymous functions == inline functions
+// we don't need to name them since they won't be referenced elsewhere in the script
+
+const myFuncAlpha = function () {
+  const myVar = "value";
+  return myVar;
+}; //function declaration
+// simplified using arrow function format
+myFuncBeta = () => (myVar = "sceptum");
+console.log(myFuncBeta());
+
+// Rewrite the function assigned to the variable magic which returns a new Date() to use arrow function syntax. Also, make sure nothing is defined using the keyword var.
+var magicAlpha = function () {
+  return new Date();
+};
+
+// my solution
+const magicBeta = () => new Date();
+
+console.log(magicBeta());
