@@ -115,3 +115,56 @@ const greeting = (name = "Anonymous") => "Hello " + name;
 // This function will return the string "Hello Anonymous" if no argument is specified, ie. argument is undefined
 console.log(greeting("John"));
 console.log(greeting());
+
+//////////////////////////////////////////////
+// The rest parameter in Functions
+// In the quest to create flexible functions, we can utilise the rest parameter. This enables us to create a function with an undefined amount of parameter values. Basically we use the "...args" statement in our parameter's place, and this let's us call the function with as many arguments as we want.
+
+function howMany(...args) {
+  return "You have passed " + args.length + " arguments.";
+}
+console.log(howMany(0, 1, 2)); //3 arguments
+console.log(howMany("string", null, [1, 2, 3], {})); //4 arguments with different datatypes
+
+// Bonus: the .reduce() method
+// The .reduce() method takes 2 arguments, a callback function and an initial value (set to 0 since we are calculating the sum of an array)
+// The callback function takes 2 arguments, the accumulator and the currentValue
+// improve this function
+const sumAlpha = (x, y, z) => {
+  const args = [x, y, z];
+  return args.reduce((a, b) => a + b, 0);
+};
+console.log(sumAlpha(1, 2, 3)); //output 6
+
+const sumBeta = (...args) => args.reduce((a, b) => a + b, 0);
+console.log(sumBeta(1, 2, 3));
+
+////////////////////////////////////////////////
+// Use the Spread Operator to Evaluate Arrays In-Place
+
+// When multiple parameters or elements are expected, the spread operator enables expansion of things like arrays
+// In the following example we want to find the largest value provided, the array is of an incorrect value type so the Math.max() operation won't work since .max() expects arguments that are numbers seperated by commas
+let arr = [6, 89, 3, 45];
+let maximus = Math.max(arr);
+console.log(maximus); //Returns NaN
+
+// We can take two paths to convert our array into the correct datatype:
+
+// Using apply,
+// we need to define which object it is referring to (use null since no specific object is being referenced) for the first argument.
+// The second argument is our array
+let maximusApply = Math.max.apply(null, arr);
+console.log(maximusApply);
+
+// Using the spread method to unpack an array,
+// A quick solution that can only be used as an argument or an array literal
+// Use the ellipses (...) to achieve this
+let maximusSpread = Math.max(...arr);
+console.log(maximusSpread);
+
+// Example: use the spread method to take arr1's content and append it to arr2
+let arrAlpha = ["Jan", "Feb", "March", "April", "May", "June"];
+let arrBeta;
+
+arrBeta = [...arrAlpha];
+console.log(arrBeta);
