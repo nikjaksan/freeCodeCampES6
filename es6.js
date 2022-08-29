@@ -168,3 +168,25 @@ let arrBeta;
 
 arrBeta = [...arrAlpha];
 console.log(arrBeta);
+
+// practise
+// append one array to another
+
+let arrGamma = [1, 2, 3, 4];
+let arrDelta = [5, 6, 7, 8];
+
+arrDelta.unshift(...arrGamma);
+console.log(arrDelta);
+
+// pass an array into a function
+let addNumbers = (x, y, z) => console.log(x + y + z);
+let numbersArr = [1, 2, 3];
+addNumbers(...numbersArr);
+
+// copy arrays
+let arrEpsilon = [1, 2, 3];
+let arrZeta = [...arrEpsilon];
+console.log(arrEpsilon, arrZeta);
+// note: arrEpsilon and arrZeta are two seperate arrays ie. they are not referencing the same array
+arrZeta.push(4);
+console.log(arrEpsilon, arrZeta);
